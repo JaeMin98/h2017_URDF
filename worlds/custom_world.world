@@ -1,0 +1,234 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+  <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/>
+  
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+    </scene>
+
+    <light type="directional" name="sun">
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+
+
+<model name="down_camera">
+  <static>true</static>
+  <pose>0 0 5.0 0 1.57 0</pose>
+  <link name="camera_link">
+    <sensor name="camera_sensor" type="camera">
+      <!-- 추가된 부분 시작 -->
+      <camera>
+        <horizontal_fov>1.3962634</horizontal_fov> <!-- 약 80도의 화각 -->
+        <image>
+          <width>1920</width>
+          <height>1080</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+      </camera>
+      <!-- 추가된 부분 끝 -->
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+        <cameraName>down_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+        <robotNamespace>/down_camera</robotNamespace>
+      </plugin>
+    </sensor>
+  </link>
+</model>
+
+<model name="front_camera">
+  <static>true</static>
+  <pose>-4.0 0 1 0 -0.1 0</pose>
+  <link name="camera_link">
+    <sensor name="camera_sensor" type="camera">
+      <!-- 추가된 부분 시작 -->
+      <camera>
+        <horizontal_fov>1.3962634</horizontal_fov> <!-- 약 80도의 화각 -->
+        <image>
+          <width>1920</width>
+          <height>1080</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+      </camera>
+      <!-- 추가된 부분 끝 -->
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+        <cameraName>front_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+        <robotNamespace>/front_camera</robotNamespace>
+      </plugin>
+    </sensor>
+  </link>
+</model>
+
+<model name="side_camera">
+  <static>true</static>
+  <pose>0 -4.0 1 0 -0.081647 1.570793</pose>
+  <link name="camera_link">
+    <sensor name="camera_sensor" type="camera">
+      <!-- 추가된 부분 시작 -->
+      <camera>
+        <horizontal_fov>1.3962634</horizontal_fov> <!-- 약 80도의 화각 -->
+        <image>
+          <width>1920</width>
+          <height>1080</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+      </camera>
+      <!-- 추가된 부분 끝 -->
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30</updateRate>
+        <cameraName>side_camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+        <robotNamespace>/side_camera</robotNamespace>
+      </plugin>
+    </sensor>
+  </link>
+</model>
+
+  
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+<arg name="workspace_path" default="/home/smartcps/catkin_ws/src" />
+
+<model name="table">
+  <pose>-0.8 0 0  0 0 0</pose>
+  <static>true</static>
+  <link name="table">
+    <visual name="visual">
+      <geometry><mesh><uri>model://table.dae</uri></mesh></geometry>
+    </visual>
+    <collision name="collision">
+      <geometry><mesh><uri>model://table.dae</uri></mesh></geometry>
+    </collision>
+  </link>
+</model>
+
+<model name="cube">
+  <pose>-0.8 -0.5 0.826  0 0 0</pose>
+  <mass value="1" />
+
+  <link name="cube">
+    <visual name="visual">
+      <geometry>
+        <mesh>
+          <uri>model://cube.dae</uri>
+          <scale>1.4 1.4 1.4</scale>
+        </mesh>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh>
+          <uri>model://cube.dae</uri>
+          <scale>1.4 1.4 1.4</scale>
+        </mesh>
+      </geometry>
+    </collision>
+  </link>
+</model>
+
+<model name="triangular_pillar">
+  <pose>-0.8 0 0.826  0 0 0</pose>
+  <mass value="3" />
+  <link name="triangular_pillar">
+    <visual name="visual">
+      <geometry>
+        <mesh>
+          <uri>model://triangular_pillar.dae</uri>
+          <scale>1.4 1.4 1.4</scale>
+        </mesh>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh>
+          <uri>model://triangular_pillar.dae</uri>
+          <scale>1.4 1.4 1.4</scale>
+        </mesh>
+      </geometry>
+    </collision>
+  </link>
+</model>
+
+<model name="cylinder">
+  <pose>-0.8 0.5 0.826  0 0 0</pose>
+  <mass value="3" />
+  <link name="cylinder">
+    <visual name="visual">
+      <geometry>
+        <mesh>
+          <uri>model://cylinder.dae</uri>
+          <scale>1.4 1.4 1.4</scale>
+        </mesh>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh>
+          <uri>model://cylinder.dae</uri>
+          <scale>1.4 1.4 1.4</scale>
+        </mesh>
+      </geometry>
+    </collision>
+  </link>
+</model>
+    
+    <atmosphere type="adiabatic"/>
+    
+  </world>
+</sdf>
+
