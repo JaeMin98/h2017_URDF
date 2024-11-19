@@ -16,15 +16,15 @@
             <inertia ixx="0.079499" ixy="2.9382e-05" ixz="1.7529e-05" iyy="0.076993" iyz="-0.0009938" izz="0.067833" />
         </inertial>
         <collision>
-            <origin rpy="0 0 0" xyz="0 0 0" />
+            <origin rpy="0 0 0" xyz="0 0 0.797" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/mobile_base.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/mobile_base.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
-            <origin rpy="0 0 0" xyz="0 0 0" />
+            <origin rpy="0 0 0" xyz="0 0 0.797" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/mobile_base.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/mobile_base.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
@@ -32,7 +32,7 @@
     <joint name="fixed_joint" type="fixed">
         <parent link="mobile_base" />
         <child link="base_0" />
-        <origin xyz="0 0 0.8" />
+        <origin xyz="0 0 0.797" />
         <!-- mobile_base의 상단에 base_link 위치 -->
     </joint>
     <link name="base_0">
@@ -44,13 +44,13 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_0_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_0_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_0_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_0_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
@@ -72,13 +72,13 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_1_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_1_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_1_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_1_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
@@ -100,37 +100,37 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_2_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_2_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_2_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_2_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_2_1.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_2_1.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_2_1.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_2_1.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_2_2.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_2_2.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_2_2.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_2_2.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
@@ -152,13 +152,13 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_3_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_3_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_3_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_3_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
@@ -180,25 +180,25 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_4_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_4_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_4_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_4_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_4_1.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_4_1.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_4_1.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_4_1.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
@@ -220,17 +220,16 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_5_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_5_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_5_0.dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_5_0.dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
-    
     <!-- joint6 -->
     <joint name="joint6" type="revolute">
         <parent link="link5" />
@@ -240,7 +239,6 @@
         <limit effort="50" lower="-6.2832" upper="6.2832" velocity="3.927" />
         <dynamics friction="0" />
     </joint>
-    
     <link name="link6">
         <inertial>
             <mass value="0.897" />
@@ -250,37 +248,34 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_7_0(gripper1).dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_7_0(gripper1).dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_7_0(gripper1).dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_7_0(gripper1).dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
-    
     <!-- joint7 -->
     <joint name="joint7" type="prismatic">
         <parent link="link6" />
         <child link="link7" />
         <origin rpy="0 0 0" xyz="0 0 0" />
         <axis xyz="0 -1 0" />
-        <limit lower="-0.0399" upper="0" effort="100" velocity="1" />
-        <dynamics friction="0.5" />
+        <limit lower="-0.0399" upper="0.0" effort="100" velocity="1" />
+        <dynamics friction="1" damping="1" />
     </joint>
-    
     <!-- joint8 -->
     <joint name="joint8" type="prismatic">
         <parent link="link6" />
         <child link="link8" />
         <origin rpy="0 0 0" xyz="0 0 0" />
         <axis xyz="0 -1 0" />
-        <limit lower="0" upper="0.0399" effort="100" velocity="1" />
-        <dynamics friction="0.5" />
+        <limit lower="0.0" upper="0.0399" effort="100" velocity="1" />
+        <dynamics friction="1" damping="1" />
     </joint>
-    
     <link name="link7">
         <inertial>
             <mass value="1" />
@@ -290,13 +285,13 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_8_0(gripper1).dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_8_0(gripper1).dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_8_0(gripper1).dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_8_0(gripper1).dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
@@ -309,24 +304,22 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_collision/H2017_8_1(gripper1).dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_collision/H2017_8_1(gripper1).dae" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
             <geometry>
-                <mesh filename="package://h2017_description/meshes/h2017_visual/H2017_8_1(gripper1).dae" scale="0.001 0.001 0.001" />
+                <mesh filename="package://h2017_URDF/meshes/h2017_visual/H2017_8_1(gripper1).dae" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
     </link>
-
     <gazebo>
-        <plugin name="link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/>
-        <robotNamespace/>
-    </gazebo>
-    <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
-        <robotNamespace/>
+        <plugin name="link_attacher_plugin" filename="libgazebo_ros_link_attacher.so" />
+        <robotNamespace />
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
     </gazebo>
 </robot>
 
