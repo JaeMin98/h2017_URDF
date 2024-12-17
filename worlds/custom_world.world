@@ -7,10 +7,26 @@
       <ambient>0.4 0.4 0.4 1</ambient>
       <background>0.7 0.7 0.7 1</background>
     </scene>
+    
+
+<gui fullscreen='0'>
+    <camera name='user_camera'>
+        <pose frame=''>-3 -4.8 4.1 0 0.45 0.976</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+    </camera>
+</gui>
+        
+<physics type="ode">
+  <real_time_update_rate>2000</real_time_update_rate>
+  <max_step_size>0.003</max_step_size>
+</physics>
+
 
     <light type="directional" name="sun">
       <cast_shadows>0</cast_shadows>
-      <pose>0 0 10 0 -0 0</pose>
+      <visualize>false</visualize>
+      <pose>-5.018295 0.918245 3.220081 -0.126150 -1.190454 -0.052231</pose>
       <diffuse>1 1 1 1</diffuse>
       <specular>0.1 0.1 0.1 1</specular>
       <attenuation>
@@ -21,169 +37,89 @@
       </attenuation>
       <direction>-0.5 0.5 -1</direction>
     </light>
-
-<model name="down_camera">
+    
+<model name="departure_place_camera">
   <static>true</static>
-  <pose>-0.824218 0 1.747809 0 1.57 0</pose>
+  <pose>-1.656224 0.003544 0.997748 0.007663 0.116897 -0.002941</pose>
   <link name="camera_link">
     <sensor name="camera_sensor" type="camera">
-    <visualize>true</visualize>
+    <visualize>false</visualize>
       <!-- 추가된 부분 시작 -->
       <camera>
-        <horizontal_fov>1.3962634</horizontal_fov> <!-- 약 80도의 화각 -->
-        <image>
-          <width>1920</width>
-          <height>1080</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.1</near>
-          <far>100</far>
-        </clip>
+	<horizontal_fov>1.3962634</horizontal_fov> <!-- 약 80도의 화각 -->
+	<image>
+	  <width>1920</width>
+	  <height>1080</height>
+	  <format>R8G8B8</format>
+	</image>
+	<clip>
+	  <near>0.1</near>
+	  <far>100</far>
+	</clip>
       </camera>
       <!-- 추가된 부분 끝 -->
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>30</updateRate>
-        <cameraName>down_camera</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>camera_link</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-        <robotNamespace>/down_camera</robotNamespace>
+	<alwaysOn>true</alwaysOn>
+	<updateRate>30</updateRate>
+	<cameraName>departure_place_camera</cameraName>
+	<imageTopicName>image_raw</imageTopicName>
+	<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+	<frameName>camera_link</frameName>
+	<hackBaseline>0.07</hackBaseline>
+	<distortionK1>0.0</distortionK1>
+	<distortionK2>0.0</distortionK2>
+	<distortionK3>0.0</distortionK3>
+	<distortionT1>0.0</distortionT1>
+	<distortionT2>0.0</distortionT2>
+	<robotNamespace>/departure_place_camera</robotNamespace>
       </plugin>
     </sensor>
   </link>
 </model>
 
-<model name="front_camera">
+<model name="destination_place_camera">
   <static>true</static>
-  <pose>-2.102638 -0.02 1.368462 0.008693 0.125347 0.008038</pose>
+  <pose>0.127368 -0.008071 1.180471 0.013726 0.373810 0.029756</pose>
   <link name="camera_link">
     <sensor name="camera_sensor" type="camera">
-    <visualize>true</visualize>
+    <visualize>false</visualize>
       <!-- 추가된 부분 시작 -->
       <camera>
-        <horizontal_fov>1.3962634</horizontal_fov> <!-- 약 80도의 화각 -->
-        <image>
-          <width>1920</width>
-          <height>1080</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.1</near>
-          <far>100</far>
-        </clip>
+	<horizontal_fov>1.3962634</horizontal_fov> <!-- 약 80도의 화각 -->
+	<image>
+	  <width>1920</width>
+	  <height>1080</height>
+	  <format>R8G8B8</format>
+	</image>
+	<clip>
+	  <near>0.1</near>
+	  <far>100</far>
+	</clip>
       </camera>
       <!-- 추가된 부분 끝 -->
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>30</updateRate>
-        <cameraName>front_camera</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>camera_link</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-        <robotNamespace>/front_camera</robotNamespace>
-      </plugin>
-    </sensor>
-  </link>
-</model>
-
-<model name="side_camera">
-  <static>true</static>
-  <pose>0 -3.6 1 0 -0.081647 1.570793</pose>
-  <link name="camera_link">
-    <sensor name="camera_sensor" type="camera">
-    <visualize>true</visualize>
-      <!-- 추가된 부분 시작 -->
-      <camera>
-        <horizontal_fov>1.3962634</horizontal_fov> <!-- 약 80도의 화각 -->
-        <image>
-          <width>1920</width>
-          <height>1080</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.1</near>
-          <far>100</far>
-        </clip>
-      </camera>
-      <!-- 추가된 부분 끝 -->
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>30</updateRate>
-        <cameraName>side_camera</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>camera_link</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-        <robotNamespace>/side_camera</robotNamespace>
+	<alwaysOn>true</alwaysOn>
+	<updateRate>30</updateRate>
+	<cameraName>destination_place_camera</cameraName>
+	<imageTopicName>image_raw</imageTopicName>
+	<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+	<frameName>camera_link</frameName>
+	<hackBaseline>0.07</hackBaseline>
+	<distortionK1>0.0</distortionK1>
+	<distortionK2>0.0</distortionK2>
+	<distortionK3>0.0</distortionK3>
+	<distortionT1>0.0</distortionT1>
+	<distortionT2>0.0</distortionT2>
+	<robotNamespace>/destination_place_camera</robotNamespace>
       </plugin>
     </sensor>
   </link>
 </model>
 
 
-<model name="diagonal_camera">
-  <static>true</static>
-  <pose>-2.846988 -2.927461 2.476655 0.009 0.268894 0.942695</pose>
-  <link name="camera_link">
-    <sensor name="camera_sensor" type="camera">
-    <visualize>true</visualize>
-      <!-- 추가된 부분 시작 -->
-      <camera>
-        <horizontal_fov>1.3962634</horizontal_fov> <!-- 약 80도의 화각 -->
-        <image>
-          <width>1920</width>
-          <height>1080</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.1</near>
-          <far>100</far>
-        </clip>
-      </camera>
-      <!-- 추가된 부분 끝 -->
-      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-        <alwaysOn>true</alwaysOn>
-        <updateRate>30</updateRate>
-        <cameraName>diagonal_camera</cameraName>
-        <imageTopicName>image_raw</imageTopicName>
-        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>camera_link</frameName>
-        <hackBaseline>0.07</hackBaseline>
-        <distortionK1>0.0</distortionK1>
-        <distortionK2>0.0</distortionK2>
-        <distortionK3>0.0</distortionK3>
-        <distortionT1>0.0</distortionT1>
-        <distortionT2>0.0</distortionT2>
-        <robotNamespace>/diagonal_camera</robotNamespace>
-      </plugin>
-    </sensor>
-  </link>
-</model>
-
-
-  
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
+<include>
+<uri>model://ground_plane</uri>
+</include>
 
 <arg name="workspace_path" default="/home/smartcps/catkin_ws/src" />
 
@@ -196,28 +132,36 @@
     </visual>
     <collision name="collision">
       <geometry><mesh><uri>model://table.dae</uri></mesh></geometry>
+  <surface>
+    <friction>
+      <ode>
+	<mu>100.0</mu> <!-- 평면 마찰 계수 -->
+	<mu2>100.0</mu2> <!-- 회전 마찰 계수 -->
+      </ode>
+    </friction>
+  </surface>
     </collision>
   </link>
 </model>
 
-<model name="cube">
+<model name="bottle">
 
-  <pose>-0.8 -0.5 0.826  0 0 0</pose>
-  <mass value="1" />
-  <link name="cube">
+  <pose>-0.8 -0.5 0.826  0 0 -1.57</pose>
+  <mass value="0.5" />
+  <link name="bottle">
     <visual name="visual">
       <geometry>
         <mesh>
-          <uri>model://cube.dae</uri>
-          <scale>1.4 1.4 1.4</scale>
+          <uri>model://bottle.dae</uri>
+          <scale>0.08 0.08 0.08</scale>
         </mesh>
       </geometry>
     </visual>
 <collision name="collision">
   <geometry>
     <mesh>
-      <uri>model://cube.dae</uri>
-      <scale>1.4 1.4 1.4</scale>
+      <uri>model://bottle.dae</uri>
+      <scale>0.08 0.08 0.08</scale>
     </mesh>
   </geometry>
   <surface>
@@ -232,48 +176,64 @@
   </link>
 </model>
 
-<model name="triangular_pillar">
+<model name="apple">
   <pose>-0.8 0 0.826  0 0 0</pose>
-  <mass value="3" />
-  <link name="triangular_pillar">
+  <mass value="0.5" />
+  <link name="apple">
     <visual name="visual">
       <geometry>
         <mesh>
-          <uri>model://triangular_pillar.dae</uri>
-          <scale>1.4 1.4 1.4</scale>
+          <uri>model://apple.dae</uri>
+          <scale>0.08 0.08 0.08</scale>
         </mesh>
       </geometry>
     </visual>
     <collision name="collision">
       <geometry>
         <mesh>
-          <uri>model://triangular_pillar.dae</uri>
-          <scale>1.4 1.4 1.4</scale>
+          <uri>model://apple.dae</uri>
+          <scale>0.08 0.08 0.08</scale>
         </mesh>
       </geometry>
+      <surface>
+    <friction>
+      <ode>
+	<mu>100.0</mu> <!-- 평면 마찰 계수 -->
+	<mu2>100.0</mu2> <!-- 회전 마찰 계수 -->
+      </ode>
+    </friction>
+  </surface>
     </collision>
   </link>
 </model>
 
-<model name="cylinder">
-  <pose>-0.8 0.5 0.826  0 0 0</pose>
-  <mass value="3" />
-  <link name="cylinder">
+<model name="cup">
+  <pose>-0.8 0.5 0.826  0 0 0.605</pose>
+  <mass value="0.5" />
+  <link name="cup">
     <visual name="visual">
       <geometry>
         <mesh>
-          <uri>model://cylinder.dae</uri>
-          <scale>1.4 1.4 1.4</scale>
+          <uri>model://cup.dae</uri>
+          <scale>0.08 0.08 0.08</scale>
         </mesh>
       </geometry>
     </visual>
     <collision name="collision">
       <geometry>
         <mesh>
-          <uri>model://cylinder.dae</uri>
-          <scale>1.4 1.4 1.0</scale>
+          <uri>model://cup.dae</uri>
+          <scale>0.08 0.08 0.08</scale>
         </mesh>
       </geometry>
+      <surface>
+    <friction>
+      <ode>
+	<mu>100.0</mu> <!-- 평면 마찰 계수 -->
+	<mu2>100.0</mu2> <!-- 회전 마찰 계수 -->
+      </ode>
+    </friction>
+  </surface>
     </collision>
   </link>
 </model>
